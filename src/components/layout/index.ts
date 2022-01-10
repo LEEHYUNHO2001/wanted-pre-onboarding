@@ -3,3 +3,4 @@ export * from "./Header";
 export * from "./JobMenu";
 export * from "./Navigation";
 export * from "./AsiedMenu";
+export * from "./MobileNavigation";

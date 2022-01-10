@@ -5,6 +5,7 @@ import { MEDIA_QUERY_END_POINT } from "../../constants";
 export const JobMenu = () => {
   return (
     <Container>
+      <h2 className="sr-only">원티드 직군별 목록</h2>
       <button>
         <Img
           src="https://static.wanted.co.kr/images/icon-menu.png"
@@ -18,7 +19,7 @@ export const JobMenu = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.article`
   display: flex;
   margin-right: 50px;
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
@@ -29,6 +30,9 @@ const Container = styled.div`
   }
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET3}) {
     width: 100vw;
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.MOBILE1}) {
+    padding-left: 20px;
   }
 `;
 const Img = styled.img`
