@@ -13,6 +13,8 @@ export const Navigation = () => {
             <Link href={PATH}>
               <Item>{LABEL}</Item>
             </Link>
+            <span>{NEW}</span>
+            <span>{BETA}</span>
           </li>
         );
       })}
@@ -22,7 +24,10 @@ export const Navigation = () => {
 
 const FlexContainer = styled.ul`
   display: flex;
+  margin-right: 65px;
 `;
 const Item = styled.a`
-  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 25px;
 `;

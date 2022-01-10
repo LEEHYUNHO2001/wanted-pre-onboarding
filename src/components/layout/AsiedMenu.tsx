@@ -1,7 +1,15 @@
+import styled from "@emotion/styled";
+import Link from "next/link";
+
 export const AsidMenu = () => {
+  const user = {
+    id: 0,
+    proImg:
+      "https://cdn.pixabay.com/photo/2021/03/31/03/12/cat-6138366_960_720.jpg",
+  };
   return (
-    <ul>
-      <li>
+    <Container>
+      <Item>
         <button>
           <svg
             xmlns="https://www.w3.org/2000/svg"
@@ -26,8 +34,8 @@ export const AsidMenu = () => {
             </g>
           </svg>
         </button>
-      </li>
-      <li>
+      </Item>
+      <Item>
         <button>
           <svg
             xmlns="https://www.w3.org/2000/svg"
@@ -59,9 +67,50 @@ export const AsidMenu = () => {
             </g>
           </svg>
         </button>
-      </li>
-      <li></li>
-      <li></li>
-    </ul>
+      </Item>
+      <Item>
+        <button>
+          <Img src={user.proImg} alt="" />
+        </button>
+      </Item>
+      <Item className="service">
+        <Link href="/dashboard/companyregister">
+          <Service>기업 서비스</Service>
+        </Link>
+      </Item>
+    </Container>
   );
 };
+
+const Container = styled.ul`
+  display: flex;
+  align-items: center;
+  .service::before {
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 10px;
+    background-color: #e1e2e3;
+    margin: auto 10px;
+  }
+`;
+const Item = styled.li`
+  padding: 0 10px;
+`;
+const Img = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid #e0dede;
+`;
+const Service = styled.a`
+  font-size: 13px;
+  color: #666;
+  height: 30px;
+  border: 1px solid #e1e2e3;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-left: 15px;
+  font-weight: 400;
+`;

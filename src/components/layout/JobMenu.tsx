@@ -19,6 +19,7 @@ export const JobMenu = () => {
 
 const Container = styled.div`
   display: flex;
+  margin-right: 50px;
 `;
 const Img = styled.img`
   width: 17px;
@@ -27,6 +28,6 @@ const Img = styled.img`
   margin: 6px 15px 0 0;
 `;
 const Home = styled.a`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
 `;
