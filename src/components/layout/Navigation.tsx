@@ -32,11 +32,15 @@ const List = styled.li`
 const Item = styled.a`
   font-size: 14px;
   font-weight: 600;
-  padding-left: 28px;
+  padding: 15px;
+  box-sizing: border-box;
+  :hover {
+    box-shadow: inset 0 -3px #ddd;
+  }
 `;
 const Plus = styled.span`
   position: absolute;
-  right: -20px;
+  right: -6px;
   top: -3px;
   font-size: 10px;
   color: #3366ff;

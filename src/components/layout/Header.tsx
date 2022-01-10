@@ -19,4 +19,5 @@ const HeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   height: 50px;
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
 `;
