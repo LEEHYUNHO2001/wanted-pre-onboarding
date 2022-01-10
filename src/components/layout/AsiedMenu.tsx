@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
+import { MEDIA_QUERY_END_POINT } from "../../constants";
 
 export const AsidMenu = () => {
   const aside = {
@@ -75,7 +76,7 @@ export const AsidMenu = () => {
         </button>
         {aside.alram.new && <New className="alram-new">N</New>}
       </Item>
-      <Item>
+      <Item className="my-info">
         <button>
           <Img src={aside.user.proImg} alt="" />
           {aside.user.new && <New className="user-new">N</New>}
@@ -86,6 +87,25 @@ export const AsidMenu = () => {
           <Service>기업 서비스</Service>
         </Link>
       </Item>
+      <Item className="dot">
+        <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path
+              d="M9 7.5a1.5 1.5 0 1 1-.001 3.001A1.5 1.5 0 0 1 9 7.5zm5.05 0a1.5 1.5 0 1 1-.001 3.001A1.5 1.5 0 0 1 14.05 7.5zM4 7.5a1.5 1.5 0 1 1-.001 3.001A1.5 1.5 0 0 1 4 7.5z"
+              id="a"
+            ></path>
+          </defs>
+          <g fill="none" fillRule="evenodd">
+            <mask id="b" fill="#fff">
+              <use xlinkHref="#a"></use>
+            </mask>
+            <use fill="#333" xlinkHref="#a"></use>
+            <g mask="url(#b)" fill="#333">
+              <path d="M0 0h18v18H0z"></path>
+            </g>
+          </g>
+        </svg>
+      </Item>
     </Container>
   );
 };
@@ -93,6 +113,10 @@ export const AsidMenu = () => {
 const Container = styled.ul`
   display: flex;
   align-items: center;
+
+  .dot {
+    display: none;
+  }
   .service::before {
     display: inline-block;
     content: "";
@@ -100,6 +124,25 @@ const Container = styled.ul`
     height: 10px;
     background-color: #e1e2e3;
     margin: auto 10px;
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    .service::before {
+      margin: auto 0px;
+    }
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET3}) {
+    .dot {
+      display: block;
+    }
+    .my-info {
+      display: none;
+    }
+    .service {
+      display: none;
+    }
+    .service::before {
+      display: none;
+    }
   }
 `;
 const Item = styled.li`
@@ -114,6 +157,9 @@ const Item = styled.li`
     position: absolute;
     top: -2px;
     right: 8px;
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    padding: 0 5px;
   }
 `;
 const Img = styled.img`

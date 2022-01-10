@@ -1,3 +1,13 @@
+export const MEDIA_QUERY_END_POINT = {
+  LARGE: "2560px",
+  DESKTOP: "1920px",
+  TABLET1: "1200px",
+  TABLET2: "1100px",
+  TABLET3: "991px",
+  MOBILE1: "767px",
+  MOBILE2: "640px",
+};
+
 export const ROUTES = [
   {
     ID: 0,

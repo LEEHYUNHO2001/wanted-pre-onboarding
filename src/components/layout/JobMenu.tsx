@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { MEDIA_QUERY_END_POINT } from "../../constants";
 
 export const JobMenu = () => {
   return (
@@ -8,7 +9,7 @@ export const JobMenu = () => {
         <Img
           src="https://static.wanted.co.kr/images/icon-menu.png"
           alt="hamberger menu"
-        ></Img>
+        />
       </button>
       <Link href="/">
         <Home>wanted</Home>
@@ -20,6 +21,15 @@ export const JobMenu = () => {
 const Container = styled.div`
   display: flex;
   margin-right: 50px;
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    margin-right: 70px;
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET2}) {
+    margin-right: 40px;
+  }
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET3}) {
+    width: 100vw;
+  }
 `;
 const Img = styled.img`
   width: 17px;
