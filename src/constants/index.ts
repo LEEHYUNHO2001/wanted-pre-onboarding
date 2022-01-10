@@ -1,0 +1,51 @@
+export const ROUTES = [
+  {
+    ID: 0,
+    PATH: "/jobsfeed",
+    LABEL: "채용",
+    NEW: "",
+    BETA: "",
+  },
+  {
+    ID: 1,
+    PATH: "/events",
+    LABEL: "이벤트",
+    NEW: "",
+    BETA: "",
+  },
+  {
+    ID: 2,
+    PATH: "/salary",
+    LABEL: "직군별 연봉",
+    NEW: "",
+    BETA: "",
+  },
+  {
+    ID: 3,
+    PATH: "/cv/list",
+    LABEL: "이력서",
+    NEW: "",
+    BETA: "",
+  },
+  {
+    ID: 4,
+    PATH: "/community/48",
+    LABEL: "커뮤니티",
+    NEW: "New",
+    BETA: "",
+  },
+  {
+    ID: 5,
+    PATH: "/gigs/experts",
+    LABEL: "프리랜서",
+    NEW: "",
+    BETA: "",
+  },
+  {
+    ID: 6,
+    PATH: "/aiscore/resume",
+    LABEL: "AI 합격예측",
+    NEW: "",
+    BETA: "Beta",
+  },
+];
