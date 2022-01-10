@@ -2,10 +2,16 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 export const AsidMenu = () => {
-  const user = {
-    id: 0,
-    proImg:
-      "https://cdn.pixabay.com/photo/2021/03/31/03/12/cat-6138366_960_720.jpg",
+  const aside = {
+    user: {
+      id: 0,
+      proImg:
+        "https://cdn.pixabay.com/photo/2021/03/31/03/12/cat-6138366_960_720.jpg",
+      new: true,
+    },
+    alram: {
+      new: true,
+    },
   };
   return (
     <Container>
@@ -67,10 +73,12 @@ export const AsidMenu = () => {
             </g>
           </svg>
         </button>
+        {aside.alram.new && <New className="alram-new">N</New>}
       </Item>
       <Item>
         <button>
-          <Img src={user.proImg} alt="" />
+          <Img src={aside.user.proImg} alt="" />
+          {aside.user.new && <New className="user-new">N</New>}
         </button>
       </Item>
       <Item className="service">
@@ -96,6 +104,17 @@ const Container = styled.ul`
 `;
 const Item = styled.li`
   padding: 0 10px;
+  position: relative;
+  .alram-new {
+    position: absolute;
+    top: -10px;
+    right: 0;
+  }
+  .user-new {
+    position: absolute;
+    top: -2px;
+    right: 8px;
+  }
 `;
 const Img = styled.img`
   width: 28px;
@@ -113,4 +132,13 @@ const Service = styled.a`
   padding: 5px 10px;
   margin-left: 15px;
   font-weight: 400;
+`;
+const New = styled.div`
+  font-size: 5px;
+  font-weight: 500;
+  text-align: center;
+  padding: 2px 3px;
+  background-color: #3366ff;
+  color: #fff;
+  border-radius: 4px;
 `;
