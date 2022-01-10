@@ -9,17 +9,20 @@ export const Navigation = () => {
       {ROUTES.map((routeObject: ROUTEDATA) => {
         const { ID, PATH, LABEL, NEW, BETA } = routeObject;
         return (
-          <div key={ID}>
+          <li key={ID}>
             <Link href={PATH}>
-              <a>{LABEL}</a>
+              <Item>{LABEL}</Item>
             </Link>
-          </div>
+          </li>
         );
       })}
     </FlexContainer>
   );
 };
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.ul`
   display: flex;
+`;
+const Item = styled.a`
+  padding-left: 20px;
 `;

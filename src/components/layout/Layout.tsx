@@ -1,9 +1,9 @@
-import { Navigation } from "./Navigation";
+import { Header } from "./Header";
 
 export const Layout: React.FC = ({ children }) => {
   return (
     <div>
-      <Navigation />
+      <Header />
       <div>{children}</div>
     </div>
   );
