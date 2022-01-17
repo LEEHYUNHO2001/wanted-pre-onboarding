@@ -1,7 +1,5 @@
-import React, { useState, useCallback, useLayoutEffect } from "react";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 
 import { CarouselData } from "../types/carouselData";
 
