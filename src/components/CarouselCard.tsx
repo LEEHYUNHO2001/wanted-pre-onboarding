@@ -1,60 +1,42 @@
-import styled from "@emotion/styled";
+import React, { useState, useCallback, useLayoutEffect } from "react";
 import Link from "next/link";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+
 import { CarouselData } from "../types/carouselData";
 
-interface carouselData {
+interface Data {
   data: CarouselData;
-  current: number;
 }
 
-export const CarouselCard = ({ data, current }: carouselData) => {
-  const { ID, SRC, TITLE, SUB, PATH } = data;
-
+export const CarouselCard = ({ data }: Data) => {
+  const { TITLE, SUB, PATH } = data;
   return (
     <Container>
-      <Link href={PATH}>
-        <a>
-          {ID === current ? (
-            <ImgCurrent src={SRC} alt={TITLE} />
-          ) : (
-            <ImgOther src={SRC} alt={TITLE} />
-          )}
-        </a>
-      </Link>
-      {ID === current ? (
-        <CarouselComment>
-          <H3>{TITLE}</H3>
-          <P>{SUB}</P>
-          <Link href={PATH}>
-            <a>
-              <SvgContainer>
-                <span>바로가기</span>
-                <svg className="SvgIcon" viewBox="0 0 18 18">
-                  <path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path>
-                </svg>
-              </SvgContainer>
-            </a>
-          </Link>
-        </CarouselComment>
-      ) : (
-        <div></div>
-      )}
+      <CarouselComment>
+        <H3>{TITLE}</H3>
+        <P>{SUB}</P>
+        <Link href={PATH}>
+          <a>
+            <SvgContainer>
+              <span>바로가기</span>
+              <svg className="SvgIcon" viewBox="0 0 18 18">
+                <path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path>
+              </svg>
+            </SvgContainer>
+          </a>
+        </Link>
+      </CarouselComment>
     </Container>
   );
 };
 
 const Container = styled.li`
+  list-style: none;
   position: relative;
   width: 100%;
   margin: 0 10px;
   transition: all 1s ease-in-out;
-`;
-const ImgCurrent = styled.img`
-  border-radius: 5px;
-`;
-const ImgOther = styled.img`
-  border-radius: 5px;
-  filter: brightness(0.5);
 `;
 const CarouselComment = styled.article`
   position: absolute;
@@ -75,6 +57,11 @@ const P = styled.p`
   font-size: 14px;
   line-height: 1.5;
   margin: 5px 0 20px 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 240px;
+  height: 20px;
 `;
 const SvgContainer = styled.div`
   position: relative;
