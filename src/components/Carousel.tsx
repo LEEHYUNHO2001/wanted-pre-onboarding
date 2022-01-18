@@ -223,7 +223,9 @@ const CarouselItem = styled.div`
   margin: 0 15px;
 `;
 const ImgCurrent = styled.img`
+  display: block;
   border-radius: 5px;
+  -webkit-user-drag: none;
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
     width: 90vw;
     height: 170px;
