@@ -15,16 +15,16 @@ export const CarouselCard = ({ data }: Data) => {
       <CarouselComment>
         <H3>{TITLE}</H3>
         <P>{SUB}</P>
-        <Link href={PATH}>
-          <a>
-            <SvgContainer>
+        <SvgContainer>
+          <Link href={PATH}>
+            <a>
               <span>바로가기</span>
               <svg className="SvgIcon" viewBox="0 0 18 18">
                 <path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path>
               </svg>
-            </SvgContainer>
-          </a>
-        </Link>
+            </a>
+          </Link>
+        </SvgContainer>
       </CarouselComment>
     </Container>
   );
@@ -35,6 +35,10 @@ const Container = styled.li`
   position: relative;
   width: 100%;
   margin: 0 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 const CarouselComment = styled.article`
   position: absolute;
@@ -81,10 +85,14 @@ const P = styled.p`
 `;
 const SvgContainer = styled.div`
   position: relative;
-  color: #3366ff;
-  fill: #3366ff;
-  font-size: 14px;
-  font-weight: 700;
+  span {
+    color: #3366ff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  svg {
+    fill: #3366ff;
+  }
 
   &::before {
     position: absolute;

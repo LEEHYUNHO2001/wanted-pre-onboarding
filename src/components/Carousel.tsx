@@ -1,4 +1,9 @@
-import React, { useState, useCallback, useLayoutEffect } from "react";
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useLayoutEffect,
+} from "react";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
@@ -17,7 +22,42 @@ type ContainerProps = {
 export const Carousel = () => {
   const [curIdx, setCurIdx] = useState(0);
   const [isHover, setIsHover] = useState(true);
+  const [mouseDownClientX, setMouseDownClientX] = useState(0);
+  const [mouseUpClientX, setMouseUpClientX] = useState(0);
   const imgSRCLen = carouselData.length;
+
+  const prevBtn = () => {
+    setCurIdx(curIdx - 1);
+  };
+  const nextBtn = () => {
+    setCurIdx(curIdx + 1);
+  };
+
+  const onMouseOver = () => {
+    setIsHover(false);
+  };
+  const onMouseOut = () => {
+    setIsHover(true);
+  };
+
+  const onMouseDown = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    setMouseDownClientX(e.clientX);
+  };
+  const onMouseUp = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    setMouseUpClientX(e.clientX);
+  };
+
+  useEffect(() => {
+    const dragSpace = Math.abs(mouseDownClientX - mouseUpClientX);
+
+    if (mouseDownClientX !== 0) {
+      if (mouseUpClientX < mouseDownClientX && dragSpace > 100) {
+        setCurIdx(curIdx + 1);
+      } else if (mouseUpClientX > mouseDownClientX && dragSpace > 100) {
+        setCurIdx(curIdx - 1);
+      }
+    }
+  }, [mouseUpClientX]);
 
   useLayoutEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -42,8 +82,10 @@ export const Carousel = () => {
 
   return (
     <Container
-      onMouseOver={() => setIsHover(false)}
-      onMouseOut={() => setIsHover(true)}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
     >
       <CarouselWrapper curIdx={curIdx} imgSRCLen={imgSRCLen}>
         <CarouselContainer curIdx={curIdx}>
@@ -76,20 +118,12 @@ export const Carousel = () => {
             })}
         </CarouselContainer>
       </CarouselWrapper>
-      <Btn
-        onClick={() => setCurIdx(curIdx - 1)}
-        className="prev"
-        aria-label="이전 버튼"
-      >
+      <Btn onClick={prevBtn} className="prev" aria-label="이전 버튼">
         <svg className="SvgIcon_SvgIcon__root__svg__DKYBi" viewBox="0 0 18 18">
           <path d="m6.045 9 5.978-5.977a.563.563 0 1 0-.796-.796L4.852 8.602a.562.562 0 0 0 0 .796l6.375 6.375a.563.563 0 0 0 .796-.796L6.045 9z"></path>
         </svg>
       </Btn>
-      <Btn
-        onClick={() => setCurIdx(curIdx + 1)}
-        className="next"
-        aria-label="다음 버튼"
-      >
+      <Btn onClick={nextBtn} className="next" aria-label="다음 버튼">
         <svg className="SvgIcon_SvgIcon__root__svg__DKYBi" viewBox="0 0 18 18">
           <path d="m11.955 9-5.978 5.977a.563.563 0 0 0 .796.796l6.375-6.375a.563.563 0 0 0 0-.796L6.773 2.227a.562.562 0 1 0-.796.796L11.955 9z"></path>
         </svg>
@@ -189,7 +223,9 @@ const CarouselItem = styled.div`
   margin: 0 15px;
 `;
 const ImgCurrent = styled.img`
+  display: block;
   border-radius: 5px;
+  -webkit-user-drag: none;
   @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
     width: 90vw;
     height: 170px;
