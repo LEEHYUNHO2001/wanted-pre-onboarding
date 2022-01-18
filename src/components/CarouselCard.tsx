@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 
 import { CarouselData } from "../types/carouselData";
+import { MEDIA_QUERY_END_POINT } from "../constants";
 
 interface Data {
   data: CarouselData;
@@ -34,7 +35,6 @@ const Container = styled.li`
   position: relative;
   width: 100%;
   margin: 0 10px;
-  transition: all 1s ease-in-out;
 `;
 const CarouselComment = styled.article`
   position: absolute;
@@ -45,11 +45,23 @@ const CarouselComment = styled.article`
   height: 146px;
   border-radius: 4px;
   box-sizing: border-box;
+
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    text-align: center;
+    width: 90vw;
+    height: 90px;
+    bottom: -100px;
+    left: -10px;
+  }
 `;
 const H3 = styled.h3`
   font-size: 20px;
   line-height: 1.5;
   margin: 20px 0 0 20px;
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    margin: 5px 0;
+    font-size: 18px;
+  }
 `;
 const P = styled.p`
   font-size: 14px;
@@ -60,6 +72,12 @@ const P = styled.p`
   white-space: nowrap;
   width: 240px;
   height: 20px;
+  @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+    width: 90vw;
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+  }
 `;
 const SvgContainer = styled.div`
   position: relative;
@@ -67,6 +85,7 @@ const SvgContainer = styled.div`
   fill: #3366ff;
   font-size: 14px;
   font-weight: 700;
+
   &::before {
     position: absolute;
     top: 0;
@@ -75,11 +94,19 @@ const SvgContainer = styled.div`
     width: 100%;
     height: 1px;
     background-color: #ececec;
+    @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+      display: none;
+    }
   }
+
   span {
     display: inline-block;
     margin: 20px 5px 0 20px;
+    @media (max-width: ${MEDIA_QUERY_END_POINT.TABLET1}) {
+      margin: 10px 0 0 20px;
+    }
   }
+
   .SvgIcon {
     width: 10px;
     height: 10px;
