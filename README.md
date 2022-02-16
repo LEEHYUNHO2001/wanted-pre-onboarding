@@ -4,6 +4,8 @@
 
 ## 배포 주소
 
+https://onboarding-exhibition.netlify.app/
+
 ### 팀 : 현호님 소고기사조
 
 #### 팀원
