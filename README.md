@@ -1,52 +1,53 @@
-## 프리온보드 프로젝트 전시 페이지
+# 프로젝트 소개
 
-## 전시 소개
-
-> 프리온보딩 과정을 진행하며 여러 프로젝트들을 팀원들과 함께 했습니다. 하지만 프로젝트가 많다보니 이를 한 곳에 보기 좋게 정리해둘 수 있으면 좋을 것 같아 이와 같은 전시회 페이지를 직접 만들어 보게 됐습니다.
-
-| 팀 구성 |
-| ------- |
-| 박훈주  |
-| 이현호  |
-| 이주영  |
-| 윤창현  |
+원티드 프리온보딩 (With 위코드) 코스를 진행하며, 수행한 과제들을 모아놓은 프로젝트 입니다.
 
 ## 배포 주소
 
-https://preonboard-exhibition.netlify.app/
+### 팀 : 현호님 소고기사조
 
-## 사용 기술 및 스택
+#### 팀원
 
-| ⚙️  Stack                     |
-| ----------------------------- |
-| React Hooks                   |
-| styled-components             |
-| React-icons                   |
-| Deploy : Netilfy              |
-| Other : Git / GitHub          |
-| Build Tool (Create React App) |
-| Code Quality Tool (Prettier)  |
-
----
-
-## CRA 구조
-
-```markdown
-.
-├── App.js
-├── index.js
-├── components
-│ └── Carousel
-│ ├── Card.jsx
-│ └── Carousel.jsx
-├── constants
-│ └── index.js
-├── images
-├── pages
-│ └── mainPage.jsx
-└── styles
-└── GlobalStyles.js
-```
+<table>
+  <tr>
+        </td>
+      <td align="center">
+      <a href="https://github.com/LEEHYUNHO2001"
+        ><img
+          src="https://avatars.githubusercontent.com/LEEHYUNHO2001"
+          width="100px;"
+          alt=""
+        /><br /><sub><b>이현호</b></sub></a>
+    <br />
+    </td>
+    <td align="center">
+      <a href="https://github.com/hoonjoo-park"
+        ><img
+          src="https://avatars.githubusercontent.com/hoonjoo-park"
+          width="100px;"
+          alt=""
+        /><br /><sub><b>박훈주</b></sub></a
+      ><br />
+    </td>
+    <td align="center">
+      <a href="https://github.com/Yoon-CH"
+        ><img
+          src="https://avatars.githubusercontent.com/Yoon-CH"
+          width="100px;"
+          alt=""
+        /><br /><sub><b>윤창현</b></sub></a
+      ><br />
+    </td>
+    <td align="center">
+      <a href="https://github.com/devjoylee"
+        ><img
+          src="https://avatars.githubusercontent.com/devjoylee"
+          width="100px;"
+          alt=""
+        /><br /><sub><b>이주영</b></sub></a
+      ><br />
+  </tr>
+</table>
 
 ## 커밋 컨벤션
 
@@ -63,5 +64,3 @@ https://preonboard-exhibition.netlify.app/
 | ➕     | 모듈 추가               |
 | 🐛     | 버그 해결               |
 | 🚑️    | 치명적인 오류 해결      |
-
----

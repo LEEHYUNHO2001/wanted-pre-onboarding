@@ -1,48 +1,44 @@
-import { CARD_STYLE, CARDS_INFO } from 'constants';
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { FaGithub, FaChrome } from 'react-icons/fa';
+import { CARD_STYLE, CARDS_INFO } from "constants";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { FaGithub, FaChrome, FaCheck } from "react-icons/fa";
 
 export const Card = ({ actualNum, cardIndex, currentIndex, transition }) => {
-  const [myClass, setMyClass] = useState('');
-  let { title, desc, link, git, image } = CARDS_INFO[actualNum];
-  const handleLink = (e) => {
-    if (e.currentTarget.className === 'git') {
-      window.open(git);
-    } else if (e.currentTarget.className === 'chrome') {
-      window.open(link);
-    }
-  };
+  const [myClass, setMyClass] = useState("");
+  let { title, desc, link, git, velog, image } = CARDS_INFO[actualNum];
   useEffect(() => {
     const getClassName = () => {
       if (cardIndex === currentIndex) {
-        setMyClass('center');
+        setMyClass("center");
       } else if (cardIndex === currentIndex - 1) {
-        setMyClass('around left');
+        setMyClass("around left");
       } else if (cardIndex === currentIndex + 1) {
-        setMyClass('around right');
+        setMyClass("around right");
       } else if (cardIndex === currentIndex - 2) {
-        setMyClass('back left');
+        setMyClass("back left");
       } else if (cardIndex === currentIndex + 2) {
-        setMyClass('back right');
+        setMyClass("back right");
       } else {
-        setMyClass('');
+        setMyClass("");
       }
     };
     getClassName();
   }, [currentIndex, cardIndex]);
   return (
     <CardBox className={myClass} transition={transition} imgUrl={image}>
-      <Background src={image} alt='background' />
+      <Background src={image} alt="background" />
       <h3>{title}</h3>
       <p>{desc}</p>
       <ButtonBox>
-        <button className='chrome' onClick={(e) => handleLink(e)}>
-          <FaChrome /> <span>링크</span>
-        </button>
-        <button className='git' onClick={(e) => handleLink(e)}>
-          <FaGithub /> <span>깃헙</span>
-        </button>
+        <a className="chrome" href={link} target="_blank" rel="noreferrer">
+          <FaChrome /> <span>Link</span>
+        </a>
+        <a className="git" href={git} target="_blank" rel="noreferrer">
+          <FaGithub /> <span>GitHub</span>
+        </a>
+        <a className="velog" href={velog} target="_blank" rel="noreferrer">
+          <FaCheck /> <span>Velog</span>
+        </a>
       </ButtonBox>
     </CardBox>
   );
@@ -67,7 +63,8 @@ const CardBox = styled.li`
   p {
     position: absolute;
     left: 5%;
-    color: #ffffff;
+    color: #b49e74;
+    font-weight: 600;
   }
   h3 {
     font-size: 1.8em;
@@ -119,11 +116,11 @@ const ButtonBox = styled.ul`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  width: 13rem;
+  width: 20rem;
   height: 2.5rem;
   left: 5%;
   bottom: 5%;
-  button {
+  a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,10 +139,16 @@ const ButtonBox = styled.ul`
       padding-top: 0.1em;
     }
   }
-  button.chrome {
+  a.chrome {
     background-color: #4078c0;
   }
-  button.git {
+  a.git {
     background-color: #6e5494;
+  }
+  a.velog {
+    svg {
+      font-size: 0.9rem;
+    }
+    background-color: #21b186;
   }
 `;
