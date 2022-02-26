@@ -65,7 +65,7 @@ export const CARDS_INFO = {
   },
   7: {
     title: "제작 예정",
-    desc: "",
+    desc: "제작 예정입니다.",
     link: "",
     git: "",
     velog: "",
@@ -73,7 +73,7 @@ export const CARDS_INFO = {
   },
   8: {
     title: "제작 예정",
-    desc: "",
+    desc: "제작 예정입니다.",
     link: "",
     git: "",
     velog: "",
