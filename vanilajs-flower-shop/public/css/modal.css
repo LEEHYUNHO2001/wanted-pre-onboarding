@@ -1,0 +1,40 @@
+.modal {
+  display: none;
+  position: fixed;
+  width: 450px;
+  top: 10px;
+  left: 35%;
+  background-color: black;
+  z-index: 9999;
+}
+
+.modal .modal-img {
+  width: 450px;
+}
+
+.modal .modal-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  background-color: black;
+}
+
+.modal .checkbox,
+.modal .modal-check,
+.modal .modal-close {
+  cursor: pointer;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    left: 0;
+    margin-left: 20px;
+  }
+}
