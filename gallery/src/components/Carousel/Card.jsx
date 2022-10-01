@@ -63,7 +63,7 @@ const CardBox = styled.li`
   p {
     position: absolute;
     left: 5%;
-    color: #b49e74;
+    color: #000000;
     font-weight: 600;
   }
   h3 {
