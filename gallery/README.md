@@ -4,7 +4,7 @@
 
 ## 배포 주소
 
-https://onboarding-exhibition.netlify.app/
+https://wanted-pre-onboarding-eta.vercel.app/
 
 ### 팀 : 현호님 소고기사조
 
